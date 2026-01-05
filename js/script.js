@@ -1,34 +1,57 @@
-//due dati inseribili dall'utente
-//chilometri da percorrere con il treno
-let chilometri= prompt("inserisci qui i chilometri da percorrere");
-chilometri = parseInt(chilometri);
-//età del passeggero
-let età= prompt("inserisci qui la tua età");
-età = parseInt(età)
+//!DATI DEL FORM
+const form = document.querySelector("form");
+const inputNome = document.getElementById("inputNome");
+const inputCognome = document.getElementById("inputCognome");
+const inputEta = document.getElementById("inputEta'");
+const inputChilometri = document.getElementById("inputChilometri");
 
-if( isNaN(chilometri) || isNaN(età)){
-    console.log('i numeri inseriti non sono validi');
-}else{
-    console.log(`chilometri inseriti= ${chilometri} età inserita= ${età}`);
-}
+//? DATI DEL BIGLIETTO
 
-//prezzo del biglietto di 0.21 euro a km
-const prezzoBiglietto= chilometri * 0.21;
-//vanno applicati due tipi di sconti
-//20% per utenti sotto ai 18 anni
-//40% per utenti sopra i 65 anni
-let sconto;
-let prezzoFinale = prezzoBiglietto;
+const nome = document.getElementById("nome");
+const cognome = document.getElementById("cognome");
+const eta = document.getElementById("eta'");
+const chilometri = document.getElementById("chilometri");
+const prezzo = document.getElementById("prezzoBiglietto")
 
-if(età < 18){
-   sconto=(prezzoBiglietto * 20) / 100;
-   prezzoFinale = prezzoBiglietto - sconto;
-} else if(età > 65){
-    sconto=(prezzoBiglietto * 40) / 100;
-    prezzoFinale = prezzoBiglietto - sconto;
-}
 
-prezzoFinale = prezzoFinale.toFixed(2) 
 
-console.log(`il prezzo finale del biglietto è ${prezzoFinale}€`);
-//output deve essere approssimato a massimo 2 cifre sotto lo zero
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const prezzoBiglietto = inputChilometri * 0.21;
+    let prezzoFinale;
+    let sconto;
+
+    if (inputEta.textContent < 18) {
+        sconto = (prezzoBiglietto * 20) / 100;
+        prezzoFinale = prezzoBiglietto - sconto;
+    } else if (inputEta.textContent > 65) {
+        sconto = (prezzoBiglietto * 40) / 100;
+        prezzoFinale = prezzoBiglietto - sconto;
+    }
+
+    // prezzoFinale = prezzoFinale.toFixed(2);
+
+    nome.textContent= inputNome.value;
+    cognome.textContent= inputCognome.value;
+    eta.textContent= inputEta.value;
+    chilometri.textContent= inputChilometri.value;
+    prezzo.textContent= prezzoBiglietto;
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
