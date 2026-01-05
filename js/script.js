@@ -18,25 +18,25 @@ const prezzo = document.getElementById("prezzoBiglietto")
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const prezzoBiglietto = inputChilometri * 0.21;
+    const prezzoBiglietto = inputChilometri.value * 0.21;
     let prezzoFinale;
     let sconto;
 
-    if (inputEta.textContent < 18) {
+    if (inputEta.value < 18) {
         sconto = (prezzoBiglietto * 20) / 100;
         prezzoFinale = prezzoBiglietto - sconto;
-    } else if (inputEta.textContent > 65) {
+    } else if (inputEta.value > 65) {
         sconto = (prezzoBiglietto * 40) / 100;
         prezzoFinale = prezzoBiglietto - sconto;
     }
 
-    // prezzoFinale = prezzoFinale.toFixed(2);
+    prezzoFinale = prezzoFinale.toFixed(2);
 
     nome.textContent= inputNome.value;
     cognome.textContent= inputCognome.value;
     eta.textContent= inputEta.value;
     chilometri.textContent= inputChilometri.value;
-    prezzo.textContent= prezzoBiglietto;
+    prezzo.textContent= prezzoFinale;
 
 })
 
