@@ -32,11 +32,11 @@ form.addEventListener("submit", (event) => {
 
     prezzoFinale = prezzoFinale.toFixed(2);
 
-    nome.textContent= inputNome.value;
-    cognome.textContent= inputCognome.value;
-    eta.textContent= inputEta.value;
-    chilometri.textContent= inputChilometri.value;
-    prezzo.textContent= prezzoFinale;
+    nome.textContent+= inputNome.value;
+    cognome.textContent+= inputCognome.value;
+    eta.textContent+= inputEta.value;
+    chilometri.textContent+= inputChilometri.value;
+    prezzo.textContent+= prezzoFinale + "€";
 
 })
 
